@@ -21,20 +21,20 @@ of load it via CDN
 You can either import it in your whole project
 
  ```js
- import VimeoPlayer from 'vue-vimeo-player'
+ import vueVimeoPlayer from 'vue-vimeo-player'
  import Vue from 'vue'
 
- Vue.use(VimeoPlayer)
+ Vue.use(vueVimeoPlayer)
 
 ```
 or import it locally in a component
 
 ```js
-  import { VimeoPlayer } from 'vue-vimeo-player'
+  import { vueVimeoPlayer } from 'vue-vimeo-player'
   
   export default {
   	data: {},
-  	components: { VimeoPlayer }
+  	components: { vueVimeoPlayer }
   }
 ```
 
@@ -103,10 +103,10 @@ Every other event has these properties: (event, data, player)
 
 ```js
  // app.js
- import VimeoPlayer from 'vue-vimeo-player'
+ import vueVimeoPlayer from 'vue-vimeo-player'
  import Vue from 'vue'
 
- Vue.use(VimeoPlayer)
+ Vue.use(vueVimeoPlayer)
 ```
 ```html
 <template>
