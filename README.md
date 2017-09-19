@@ -47,3 +47,4 @@ Just include the script from the CDN and you are good to go.
 ....
 <vimeo-player :id='videoId'></vimeo-player>	
 ```
+
