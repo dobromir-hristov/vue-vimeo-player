@@ -2084,18 +2084,120 @@ return Player;
 
 });
 
-function plugin(vue, options) {
-	Vue.component('vimeo-player', vimeoPlayer);
+var pid = 0;
+
+function emitVueEvent(event) {
+  var _this = this;
+
+  this.player.on(event, function (data) {
+    _this.$emit(event, data, _this.player);
+  });
 }
 
-plugin.version = '0.0.1';
+var eventsToEmit = ['play', 'pause', 'ended', 'timeupdate', 'progress', 'seeked', 'texttrackchange', 'cuechange', 'cuepoint', 'volumechange', 'error', 'loaded'];
+
+var vueVimeoPlayer = {
+  props: {
+    playerHeight: {
+      default: 320
+    },
+    playerWidth: {
+      default: '100%'
+    },
+    options: {
+      default: function _default() {
+        return {};
+      }
+    },
+    videoId: {
+      required: true
+    },
+    loop: {
+      default: false
+    },
+    autoplay: {
+      default: false
+    }
+  },
+  template: '<div :id="elementId"></div>',
+  watch: {
+    videoId: 'update'
+  },
+  data: function data() {
+    pid += 1;
+
+    return {
+      elementId: 'vimeo-player-' + pid,
+      player: null
+    };
+  },
+
+  methods: {
+    /**
+     * Loads a new video ID.
+     * Returns a promise
+     * @param {Number} videoId
+     * @return {LoadVideoPromise}
+     */
+    update: function update(videoId) {
+      return this.player.loadVideo(videoId);
+    },
+    play: function play() {
+      return this.player.play();
+    },
+    pause: function pause() {
+      return this.player.pause();
+    },
+    mute: function mute() {
+      return this.player.setVolume(0);
+    },
+    unmute: function unmute() {
+      var volume = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0.5;
+
+      return this.player.setVolume(volume);
+    },
+    setEvents: function setEvents() {
+      var vm = this;
+
+      this.player.ready().then(function () {
+        vm.$emit('ready', vm.player);
+      });
+
+      eventsToEmit.forEach(function (event) {
+        return emitVueEvent.call(vm, event);
+      });
+    }
+  },
+  mounted: function mounted() {
+    var options = {
+      id: this.videoId,
+      width: this.playerWidth,
+      height: this.playerHeight,
+      loop: this.loop,
+      autoplay: this.autoplay
+    };
+
+    this.player = new player(this.elementId, Object.assign(options, this.options));
+
+    this.setEvents();
+  },
+  beforeDestroy: function beforeDestroy() {
+    this.player.unload();
+  }
+};
+
+function plugin(vue, options) {
+	Vue.component('vimeo-player', vueVimeoPlayer);
+}
+
+plugin.version = '0.0.2';
 
 if (typeof window !== 'undefined' && window.Vue) {
 	window.Vue.use(plugin);
 }
 
 exports['default'] = plugin;
-exports.vimeoPlayer = vimeoPlayer;
+exports.vueVimeoPlayer = vueVimeoPlayer;
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
