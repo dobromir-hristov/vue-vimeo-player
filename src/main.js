@@ -26,10 +26,10 @@
   export default {
     props: {
       playerHeight: {
-        default: null
+        default: 320
       },
       playerWidth: {
-        default: null
+        default: '100%'
       },
       options: {
         default: () => ({})
