@@ -11,10 +11,20 @@
   },
   "keywords": [
     "Vue",
-    "Vimeo"
+    "Vimeo",
+    "Player",
+    "component"
   ],
+  "bugs": {
+    "url": "https://github.com/dobromir-hristov/vue-vimeo-player/issues"
+  },
+  "homepage": "https://github.com/dobromir-hristov/vue-vimeo-player#readme",
   "module": "dist/bundle.es.js",
   "author": "Dobromir Hristov <dobri@digital-cult.com> (http://digital-cult.com/)",
+   "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dobromir-hristov/vue-vimeo-player.git"
+  },
   "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.26.0",
