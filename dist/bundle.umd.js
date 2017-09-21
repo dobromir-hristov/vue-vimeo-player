@@ -2190,7 +2190,7 @@ function plugin(vue, options) {
 	Vue.component('vimeo-player', vueVimeoPlayer);
 }
 
-plugin.version = '0.0.2';
+plugin.version = '0.0.3';
 
 if (typeof window !== 'undefined' && window.Vue) {
 	window.Vue.use(plugin);
