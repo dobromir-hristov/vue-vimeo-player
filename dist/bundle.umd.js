@@ -2119,7 +2119,10 @@ var vueVimeoPlayer = {
       default: false
     }
   },
-  template: '<div :id="elementId"></div>',
+  render: function render(h) {
+    return h('div', { attrs: { id: this.elementId } });
+  },
+
   watch: {
     videoId: 'update'
   },
@@ -2190,7 +2193,7 @@ function plugin(Vue, options) {
 	Vue.component('vimeo-player', vueVimeoPlayer);
 }
 
-plugin.version = '0.0.4';
+plugin.version = '0.0.5';
 
 if (typeof window !== 'undefined' && window.Vue) {
 	window.Vue.use(plugin);
