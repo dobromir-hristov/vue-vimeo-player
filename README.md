@@ -1,7 +1,7 @@
 # Vue wrapper for Vimeo Embed Player 
 [![npm](https://img.shields.io/npm/v/vue-vimeo-player.svg)](https://www.npmjs.com/package/vue-vimeo-player) [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![vue2](https://img.shields.io/badge/vue-2.x-brightgreen.svg)](https://vuejs.org/)
 
-The Vue vimeo player allows you to use the Vimeo player as a Vue component with ease.
+The Vue vimeo player allows you to use the Vimeo player as a Vue component with ease, even with Nuxt.js SSR.
 
 ## Installation
 
@@ -47,6 +47,36 @@ Just include the script from the CDN and you are good to go.
 <script src="//unpkgd.com/vue-vimeo-player"></script>
 ....
 <vimeo-player :video-id='videoId'></vimeo-player>	
+```
+
+## Usage with Nuxt.js
+
+As we know Nuxt.js allows the really cool advantage of Server Side Rendering, but this means there is no `window` variable.
+To fix this, we need to tell Nuxt.js to skip rendering our component on the server and render it just on the Browser
+
+We need to create a file inside the `plugins` directory called `vimeo-player.js` or what ever you see fit.
+```js
+// plugins/vimeo-player.js
+import Vue from 'vue'
+import vueVimeoPlayer from 'vue-vimeo-player'
+
+Vue.use(vueVimeoPlayer)
+
+```
+
+Now we need to tell Nuxt to load our plugin inside `nuxt.config.js`
+
+```js
+// ....
+plugins: [
+    { src: `~plugins/vimeo-player`, ssr: false }
+],
+build: {
+    vendor: [
+      'vue-vimeo-player'
+    ],
+}
+// ....
 ```
 
 ## Props

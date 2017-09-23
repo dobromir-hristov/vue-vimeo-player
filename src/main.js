@@ -29,7 +29,7 @@
         default: 320
       },
       playerWidth: {
-        default: '100%'
+        default: 640
       },
       options: {
         default: () => ({})
