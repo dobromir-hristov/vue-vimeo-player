@@ -1,6 +1,6 @@
 import vueVimeoPlayer from './main.js'
 
-function plugin (vue, options) {
+function plugin (Vue, options) {
 	Vue.component('vimeo-player', vueVimeoPlayer)
 }
 
