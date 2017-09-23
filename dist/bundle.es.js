@@ -2180,11 +2180,11 @@ var vueVimeoPlayer = {
   }
 };
 
-function plugin(vue, options) {
+function plugin(Vue, options) {
 	Vue.component('vimeo-player', vueVimeoPlayer);
 }
 
-plugin.version = '0.0.3';
+plugin.version = '0.0.4';
 
 if (typeof window !== 'undefined' && window.Vue) {
 	window.Vue.use(plugin);
