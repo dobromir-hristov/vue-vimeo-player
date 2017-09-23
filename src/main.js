@@ -44,7 +44,9 @@
         default: false
       }
     },
-    template: '<div :id="elementId"></div>',
+    render (h) {
+      return h('div', { attrs: { id: this.elementId }})
+    },
     watch: {
       videoId: 'update'
     },
