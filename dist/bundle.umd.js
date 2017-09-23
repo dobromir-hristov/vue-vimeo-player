@@ -2102,7 +2102,7 @@ var vueVimeoPlayer = {
       default: 320
     },
     playerWidth: {
-      default: '100%'
+      default: 640
     },
     options: {
       default: function _default() {
@@ -2193,7 +2193,7 @@ function plugin(Vue, options) {
 	Vue.component('vimeo-player', vueVimeoPlayer);
 }
 
-plugin.version = '0.0.5';
+plugin.version = '0.0.6';
 
 if (typeof window !== 'undefined' && window.Vue) {
 	window.Vue.use(plugin);
