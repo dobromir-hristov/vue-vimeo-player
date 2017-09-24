@@ -7,12 +7,12 @@ The Vue vimeo player allows you to use the Vimeo player as a Vue component with 
 
 Using npm:
 
-```
+```bash
 npm install vue-vimeo-player --save
 ```
 of load it via CDN
 
-```
+```html
 <script src="//unpkgd.com/vue-vimeo-player"></script>
 ```
 
@@ -45,7 +45,7 @@ Just include the script from the CDN and you are good to go.
 ```html
 <script src="//unpkgd.com/vue@2.4"></script>
 <script src="//unpkgd.com/vue-vimeo-player"></script>
-....
+<!-- .... -->
 <vimeo-player :video-id='videoId'></vimeo-player>	
 ```
 
