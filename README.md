@@ -80,14 +80,57 @@ build: {
 ```
 
 ## Props
-
- - player-width: String or Number, default 100%
- - player-height: String or Number, default 320
- - options: Object - options to pass to Vimeo.Player
- - video-id: String, required
- - loop: Boolean
- - autoplay: Boolean
-
+<table>
+	<tr>
+      <th>Prop</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+      <th>Required</th>
+    </tr>
+    <tr>
+        <td>autoplay</td>
+        <td>Boolean</td>
+        <td>false</td>
+        <td>The video automatically begins to playback as soon as it can do.</td>
+        <td>No</td>
+    </tr>
+    <tr>
+        <td>player-width</td>
+        <td>String or Number</td>
+        <td>640</td>
+        <td>The width of the video's display area</td>
+        <td>No</td>
+    </tr>
+    <tr>
+        <td>player-height</td>
+        <td>String or Number</td>
+        <td>320</td>
+        <td>The height of the video's display area</td>
+        <td>No</td>
+    </tr>
+    <tr>
+        <td>options</td>
+        <td>Object</td>
+        <td>{}</td>
+        <td>Options to pass to Vimeo.Player</td>
+        <td>No</td>
+    </tr>
+    <tr>
+        <td>video-id</td>
+        <td>String</td>
+        <td></td>
+        <td>Vimeo player unique identifier</td>
+        <td>Yes</td>
+    </tr>
+    <tr>
+        <td>loop</td>
+        <td>Boolean</td>
+        <td>false</td>
+        <td>Upon reaching the end of the video, automatically seek back to the start.</td>
+        <td>No</td>
+    </tr>
+</table>
  
 ## Methods
 
