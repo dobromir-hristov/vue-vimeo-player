@@ -1,14 +1,14 @@
-  import Player from '@vimeo/player'
+import Player from '@vimeo/player'
 
-  let pid = 0
+let pid = 0
 
-  function emitVueEvent (event) {
-    this.player.on(event, (data) => {
-      this.$emit(event, data, this.player)
-    })
-  }
+function emitVueEvent (event) {
+  this.player.on(event, (data) => {
+    this.$emit(event, data, this.player)
+  })
+}
 
-  const eventsToEmit = [
+const eventsToEmit = [
   'play',
   'pause',
   'ended',
@@ -21,89 +21,89 @@
   'volumechange',
   'error',
   'loaded'
-  ]
-
-  export default {
-    props: {
-      playerHeight: {
-        default: 320
-      },
-      playerWidth: {
-        default: 640
-      },
-      options: {
-        default: () => ({})
-      },
-      videoId: {
-        required: true
-      },
-      loop: {
-        default: false
-      },
-      autoplay: {
-        default: false
-      }
+]
+// @vue/component
+export default {
+  props: {
+    playerHeight: {
+      default: 320
     },
-    render (h) {
-      return h('div', { attrs: { id: this.elementId }})
+    playerWidth: {
+      default: 640
     },
-    watch: {
-      videoId: 'update'
+    options: {
+      default: () => ({})
     },
-    data () {
-      pid += 1
-
-      return {
-        elementId: `vimeo-player-${pid}`,
-        player: null
-      }
+    videoId: {
+      required: true
     },
-    methods: {
-      /**
-       * Loads a new video ID.
-       * Returns a promise
-       * @param {Number} videoId
-       * @return {LoadVideoPromise}
-       */
-       update (videoId) {
-        return this.player.loadVideo(videoId)
-      },
-      play () {
-        return this.player.play()
-      },
-      pause () {
-        return this.player.pause()
-      },
-      mute () {
-        return this.player.setVolume(0)
-      },
-      unmute (volume = 0.5) {
-        return this.player.setVolume(volume)
-      },
-      setEvents () {
-        const vm = this
-
-        this.player.ready().then(function () {
-          vm.$emit('ready', vm.player)
-        })
-
-        eventsToEmit.forEach(event => emitVueEvent.call(vm, event))
-      }
+    loop: {
+      default: false
     },
-    mounted () {
-      const options = {
-        id: this.videoId,
-        width: this.playerWidth,
-        height: this.playerHeight,
-        loop: this.loop,
-        autoplay: this.autoplay
-      }
-
-      this.player = new Player(this.elementId, Object.assign(options, this.options))
-
-      this.setEvents()
-    },
-    beforeDestroy () {
-      this.player.unload()
+    autoplay: {
+      default: false
     }
+  },
+  render (h) {
+    return h('div', { attrs: { id: this.elementId } })
+  },
+  watch: {
+    videoId: 'update'
+  },
+  data () {
+    pid += 1
+
+    return {
+      elementId: `vimeo-player-${pid}`,
+      player: null
+    }
+  },
+  methods: {
+    /**
+     * Loads a new video ID.
+     * Returns a promise
+     * @param {Number} videoId
+     * @return {LoadVideoPromise}
+     */
+    update (videoId) {
+      return this.player.loadVideo(videoId)
+    },
+    play () {
+      return this.player.play()
+    },
+    pause () {
+      return this.player.pause()
+    },
+    mute () {
+      return this.player.setVolume(0)
+    },
+    unmute (volume = 0.5) {
+      return this.player.setVolume(volume)
+    },
+    setEvents () {
+      const vm = this
+
+      this.player.ready().then(function () {
+        vm.$emit('ready', vm.player)
+      })
+
+      eventsToEmit.forEach(event => emitVueEvent.call(vm, event))
+    }
+  },
+  mounted () {
+    const options = {
+      id: this.videoId,
+      width: this.playerWidth,
+      height: this.playerHeight,
+      loop: this.loop,
+      autoplay: this.autoplay
+    }
+
+    this.player = new Player(this.elementId, Object.assign(options, this.options))
+
+    this.setEvents()
+  },
+  beforeDestroy () {
+    this.player.unload()
   }
+}
