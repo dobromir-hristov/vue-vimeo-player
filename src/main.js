@@ -74,6 +74,9 @@
       pause () {
         return this.player.pause()
       },
+      setCurrentTime: function setCurrentTime(time) {
+        return this.player.setCurrentTime(time);
+      },
       mute () {
         return this.player.setVolume(0)
       },
