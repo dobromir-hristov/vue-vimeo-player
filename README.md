@@ -79,6 +79,16 @@ build: {
 // ....
 ```
 
+### Using the <no-ssr></no-ssr> component
+
+Another option is to use the [no-ssr](https://nuxtjs.org/api/components-no-ssr/) component to wrap the vue-vimeo component in the template. 
+
+```html
+<no-ssr>
+  <vimeo-player ref="player" :video-id="videoID"/>
+</no-ssr>	
+```
+
 ## Props
 <table>
 	<tr>
