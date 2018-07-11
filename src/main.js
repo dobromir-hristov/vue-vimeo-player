@@ -83,9 +83,13 @@ export default {
     setEvents () {
       const vm = this
 
-      this.player.ready().then(function () {
-        vm.$emit('ready', vm.player)
-      })
+      this.player.ready()
+        .then(function () {
+          vm.$emit('ready', vm.player)
+        })
+        .catch((error) => {
+          vm.$emit('error', error, vm.player)
+        })
 
       eventsToEmit.forEach(event => emitVueEvent.call(vm, event))
     }
