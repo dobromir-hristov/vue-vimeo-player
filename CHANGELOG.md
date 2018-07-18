@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.0.8"></a>
+## [0.0.8](https://github.com/dobromir-hristov/vue-vimeo-player/compare/v0.0.7...v0.0.8) (2018-07-18)
+
+
+### Bug Fixes
+
+* add Object.assign ponyfill. ([4ef4fea](https://github.com/dobromir-hristov/vue-vimeo-player/commit/4ef4fea))
+
+
+
 <a name="0.0.7"></a>
 ## [0.0.7](https://github.com/dobromir-hristov/vue-vimeo-player/compare/v0.0.6...v0.0.7) (2018-07-11)
 
