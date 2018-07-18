@@ -1,4 +1,5 @@
 import Player from '@vimeo/player'
+import assign from 'object-assign'
 
 let pid = 0
 
@@ -103,7 +104,7 @@ export default {
       autoplay: this.autoplay
     }
 
-    this.player = new Player(this.elementId, Object.assign(options, this.options))
+    this.player = new Player(this.elementId, assign(options, this.options))
 
     this.setEvents()
   },

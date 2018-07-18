@@ -28,7 +28,7 @@ export default [
   {
     input: 'src/index.js',
     output: { format: 'es', file: 'dist/bundle.es.js' },
-    external: ['@vimeo/player'],
+    external: ['@vimeo/player', 'object-assign'],
     plugins: [
       resolve({
         customResolveOptions: {
