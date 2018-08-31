@@ -212,8 +212,8 @@ export default {
 		play () {
 			this.$refs.player.play()
 		},
-		stop () {
-			this.$refs.player.stop()
+		pause () {
+			this.$refs.player.pause()
 		}
 	}
 }
