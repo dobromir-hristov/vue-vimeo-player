@@ -11,7 +11,6 @@ function emitVueEvent (event) {
 
 const eventsToEmit = [
   'play',
-  //'getBuffered',
   'pause',
   'ended',
   'timeupdate',

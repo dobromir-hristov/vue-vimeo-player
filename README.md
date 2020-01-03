@@ -1,19 +1,16 @@
 # Vue wrapper for Vimeo Embed Player 
-[![npm](https://img.shields.io/npm/v/vue-vimeo-player.svg)](https://www.npmjs.com/package/vue-vimeo-player) [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![vue2](https://img.shields.io/badge/vue-2.x-brightgreen.svg)](https://vuejs.org/)
+[![npm](https://img.shields.io/npm/v/vue-vimeo-player.svg)](https://www.npmjs.com/package/@juannnesss/vue-vimeo-player) [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![vue2](https://img.shields.io/badge/vue-2.x-brightgreen.svg)](https://vuejs.org/)
 
 The Vue vimeo player allows you to use the Vimeo player as a Vue component with ease, even with Nuxt.js SSR.
+
+this proyect is just a fork from another work(https://github.com/dobromir-hristov/vue-vimeo-player)
 
 ## Installation
 
 Using npm:
 
 ```bash
-npm install vue-vimeo-player --save
-```
-of load it via CDN
-
-```html
-<script src="//unpkgd.com/vue-vimeo-player"></script>
+npm install @juannnesss/vue-vimeo-player --save
 ```
 
 ## Getting Started
@@ -21,7 +18,7 @@ of load it via CDN
 You can either import it in your whole project
 
  ```js
- import vueVimeoPlayer from 'vue-vimeo-player'
+ import vueVimeoPlayer from '@juannnesss/vue-vimeo-player
  import Vue from 'vue'
 
  Vue.use(vueVimeoPlayer)
@@ -30,7 +27,7 @@ You can either import it in your whole project
 or import it locally in a component
 
 ```js
-  import { vueVimeoPlayer } from 'vue-vimeo-player'
+  import { vueVimeoPlayer } from '@juannnesss/vue-vimeo-player'
   
   export default {
   	data: {},
@@ -38,16 +35,7 @@ or import it locally in a component
   }
 ```
 
-## Usage without module bundler
 
-Just include the script from the CDN and you are good to go.
-
-```html
-<script src="//unpkgd.com/vue@2.4"></script>
-<script src="//unpkgd.com/vue-vimeo-player"></script>
-<!-- .... -->
-<vimeo-player :video-id='videoId'></vimeo-player>	
-```
 
 ## Usage with Nuxt.js
 
@@ -58,7 +46,7 @@ We need to create a file inside the `plugins` directory called `vimeo-player.js`
 ```js
 // plugins/vimeo-player.js
 import Vue from 'vue'
-import vueVimeoPlayer from 'vue-vimeo-player'
+import vueVimeoPlayer from '@juannnesss/vue-vimeo-player'
 
 Vue.use(vueVimeoPlayer)
 
@@ -73,7 +61,7 @@ plugins: [
 ],
 build: {
     vendor: [
-      'vue-vimeo-player'
+      '@juannnesss/vue-vimeo-player'
     ],
 }
 // ....
@@ -145,6 +133,7 @@ Another option is to use the [no-ssr](https://nuxtjs.org/api/components-no-ssr/)
 ## Methods
 
  - update(videoID): Recreates the Vimeo player with the provided ID
+ - getBuffered()
  - play()
  - pause()
  - mute()
@@ -180,6 +169,7 @@ Every other event has these properties: (event, data, player)
  - error
  - loaded
 
+The getBuffered() Method returns a promise
 
 ## Example
 
@@ -211,7 +201,18 @@ export default {
 		},
 		play () {
 			this.$refs.player.play()
-		},
+        },
+        async buffered(){
+           let buf = await this.$refs.player.getBuffered()
+            .then(function(buffered) {
+                // buffered = an array of the buffered video time ranges.
+                return buffered
+            }).catch(function(error) {
+                // an error occurred
+            });
+            console.log('Buffered Array []',buf)
+            // buf.lenght==0 mean nothins has been buffered yet
+        },
 		pause () {
 			this.$refs.player.pause()
 		}
