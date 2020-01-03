@@ -11,6 +11,7 @@ function emitVueEvent (event) {
 
 const eventsToEmit = [
   'play',
+  //'getBuffered',
   'pause',
   'ended',
   'timeupdate',
@@ -68,6 +69,9 @@ export default {
      */
     update (videoId) {
       return this.player.loadVideo(videoId)
+    },
+    getBuffered(){
+      return this.player.getBuffered()
     },
     play () {
       return this.player.play()
