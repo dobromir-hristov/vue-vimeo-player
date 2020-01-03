@@ -18,7 +18,7 @@ npm install @juannnesss/vue-vimeo-player --save
 You can either import it in your whole project
 
  ```js
- import vueVimeoPlayer from '@juannnesss/vue-vimeo-player
+ import vueVimeoPlayer from '@juannnesss/vue-vimeo-player'
  import Vue from 'vue'
 
  Vue.use(vueVimeoPlayer)
