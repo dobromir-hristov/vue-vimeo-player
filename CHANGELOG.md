@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.0.11"></a>
+## [0.0.11](https://github.com/dobromir-hristov/vue-vimeo-player/compare/v0.0.10...v0.0.11) (2020-01-14)
+
+
+### Bug Fixes
+
+* Added support for supplying vimeoUrl which will instantiate the player with url instead of id. Useful if video is protected by private link. ([#29](https://github.com/dobromir-hristov/vue-vimeo-player/issues/29)) ([33a4b14](https://github.com/dobromir-hristov/vue-vimeo-player/commit/33a4b14))
+
+
+
 <a name="0.0.10"></a>
 ## [0.0.10](https://github.com/dobromir-hristov/vue-vimeo-player/compare/v0.0.9...v0.0.10) (2019-08-29)
 

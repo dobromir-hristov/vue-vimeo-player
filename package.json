@@ -1,6 +1,6 @@
 {
   "name": "vue-vimeo-player",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "Vue.js wrapper for Vimeo player",
   "main": "dist/bundle.umd.js",
   "scripts": {
