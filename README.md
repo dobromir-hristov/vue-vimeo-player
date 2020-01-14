@@ -134,6 +134,13 @@ Another option is to use the [no-ssr](https://nuxtjs.org/api/components-no-ssr/)
         <td>Yes</td>
     </tr>
     <tr>
+        <td>video-url</td>
+        <td>String</td>
+        <td>undefined</td>
+        <td>Vimeo url to play video (if using private links)</td>
+        <td>No</td>
+    </tr>
+    <tr>
         <td>loop</td>
         <td>Boolean</td>
         <td>false</td>
