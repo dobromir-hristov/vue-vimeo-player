@@ -38,6 +38,9 @@ export default {
     videoId: {
       required: true
     },
+    videoUrl: {
+      default: undefined
+    },
     loop: {
       default: false
     },
@@ -103,6 +106,7 @@ export default {
       loop: this.loop,
       autoplay: this.autoplay
     }
+    if (this.videoUrl) { options.url = this.videoUrl }
 
     this.player = new Player(this.elementId, assign(options, this.options))
 
