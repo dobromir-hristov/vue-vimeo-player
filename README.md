@@ -147,6 +147,13 @@ Another option is to use the [no-ssr](https://nuxtjs.org/api/components-no-ssr/)
         <td>Upon reaching the end of the video, automatically seek back to the start.</td>
         <td>No</td>
     </tr>
+    <tr>
+        <td>controls</td>
+        <td>Boolean</td>
+        <td>true</td>
+        <td>This parameter if `false` will hide all elements in the player (play bar, sharing buttons, etc) for a chromeless experience. ⚠️Warning: When using this parameter, the play bar and UI will be hidden. To start playback for your viewers, you'll need to either enable autoplay or use our player SDK to start and control playback. **(available to Plus, PRO, or Business members)**</td>
+        <td>No</td>
+    </tr>
 </table>
  
 ## Methods
