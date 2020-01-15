@@ -51,7 +51,9 @@
     "standard-version": "^4.2.0"
   },
   "dependencies": {
-    "@vimeo/player": "^2.6.3",
+    "@vimeo/player": "^2.10.0",
+    "install": "^0.13.0",
+    "npm": "^6.13.6",
     "object-assign": "^4.1.1"
   },
   "peerDependencies": {

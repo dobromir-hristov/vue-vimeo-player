@@ -43,6 +43,9 @@ export default {
     },
     autoplay: {
       default: false
+    },
+    controls: {
+      default: true
     }
   },
   render (h) {
@@ -101,7 +104,8 @@ export default {
       width: this.playerWidth,
       height: this.playerHeight,
       loop: this.loop,
-      autoplay: this.autoplay
+      autoplay: this.autoplay,
+      controls: this.controls
     }
 
     this.player = new Player(this.elementId, assign(options, this.options))
