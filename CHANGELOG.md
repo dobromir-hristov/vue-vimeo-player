@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.1.0"></a>
+# [0.1.0](https://github.com/dobromir-hristov/vue-vimeo-player/compare/v0.0.11...v0.1.0) (2020-01-15)
+
+
+### Features
+
+* add controls prop ([#32](https://github.com/dobromir-hristov/vue-vimeo-player/issues/32)) ([9a8213b](https://github.com/dobromir-hristov/vue-vimeo-player/commit/9a8213b))
+
+
+
 <a name="0.0.11"></a>
 ## [0.0.11](https://github.com/dobromir-hristov/vue-vimeo-player/compare/v0.0.10...v0.0.11) (2020-01-14)
 
