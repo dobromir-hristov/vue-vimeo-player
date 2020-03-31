@@ -123,7 +123,7 @@ Another option is to use the [no-ssr](https://nuxtjs.org/api/components-no-ssr/)
         <td>options</td>
         <td>Object</td>
         <td>{}</td>
-        <td>Options to pass to Vimeo.Player. [See the Vimeo docs](https://developer.vimeo.com/player/sdk/embed) </td>
+        <td>Options to pass to Vimeo.Player. <a href="https://github.com/vimeo/player.js/#embed-options">See the Vimeo docs</a></td>
         <td>No</td>
     </tr>
     <tr>
