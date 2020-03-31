@@ -43,8 +43,8 @@ or import it locally in a component
 Just include the script from the CDN and you are good to go.
 
 ```html
-<script src="//unpkgd.com/vue@2.4"></script>
-<script src="//unpkgd.com/vue-vimeo-player"></script>
+<script src="//unpkg.com/vue@2.4"></script>
+<script src="//unpkg.com/vue-vimeo-player"></script>
 <!-- .... -->
 <vimeo-player :video-id='videoId'></vimeo-player>	
 ```
