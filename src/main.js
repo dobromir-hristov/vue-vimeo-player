@@ -104,13 +104,13 @@ export default {
   mounted () {
     const options = {
       id: this.videoId,
-      width: this.playerWidth,
-      height: this.playerHeight,
       loop: this.loop,
       autoplay: this.autoplay,
       controls: this.controls
     }
     if (this.videoUrl) { options.url = this.videoUrl }
+    if (this.playerWidth) { options.wdith = this.playerWidth }
+    if (this.playerHeight) { options.height = this.playerHeight }
 
     this.player = new Player(this.elementId, assign(options, this.options))
 
