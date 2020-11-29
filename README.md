@@ -52,16 +52,16 @@ Just include the script from the CDN and you are good to go.
 ## Usage with Nuxt.js
 
 As we know Nuxt.js allows the really cool advantage of Server Side Rendering, but this means there is no `window` variable.
-To fix this, we need to tell Nuxt.js to skip rendering our component on the server and render it just on the Browser
+To fix this, we need to tell Nuxt.js to skip rendering our component on the server and render it just on the Browser.
 
 We need to create a file inside the `plugins` directory called `vimeo-player.js` or what ever you see fit.
+
 ```js
 // plugins/vimeo-player.js
 import Vue from 'vue'
 import vueVimeoPlayer from 'vue-vimeo-player'
 
 Vue.use(vueVimeoPlayer)
-
 ```
 
 Now we need to tell Nuxt to load our plugin inside `nuxt.config.js`
@@ -69,7 +69,7 @@ Now we need to tell Nuxt to load our plugin inside `nuxt.config.js`
 ```js
 // ....
 plugins: [
-    { src: `~plugins/vimeo-player`, ssr: false }
+    { src: `~plugins/vimeo-player` }
 ],
 build: {
     vendor: [
@@ -79,14 +79,12 @@ build: {
 // ....
 ```
 
-### Using the <no-ssr></no-ssr> component
-
-Another option is to use the [no-ssr](https://nuxtjs.org/api/components-no-ssr/) component to wrap the vue-vimeo component in the template. 
+Now we have to use the [client-only](https://nuxtjs.org/docs/2.x/features/nuxt-components#the-client-only-component) component to wrap the vue-vimeo component in the template. 
 
 ```html
-<no-ssr>
+<client-only>
   <vimeo-player ref="player" :video-id="videoID"/>
-</no-ssr>	
+</client-only>	
 ```
 
 ## Props
