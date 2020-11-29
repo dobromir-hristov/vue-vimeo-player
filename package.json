@@ -48,7 +48,7 @@
     "rollup-plugin-replace": "^2.0.0",
     "rollup-plugin-terser": "^1.0.1",
     "rollup-watch": "^4.3.1",
-    "standard-version": "^4.2.0"
+    "standard-version": "^8.0.1"
   },
   "dependencies": {
     "@vimeo/player": "^2.14.1",
