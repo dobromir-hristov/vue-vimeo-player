@@ -11,17 +11,28 @@ function emitVueEvent (event) {
 
 const eventsToEmit = [
   'play',
+  'playing',
   'pause',
   'ended',
   'timeupdate',
   'progress',
+  'seeking',
   'seeked',
   'texttrackchange',
+  'chapterchange',
   'cuechange',
   'cuepoint',
   'volumechange',
+  'playbackratechange',
+  'bufferstart',
+  'bufferend',
   'error',
-  'loaded'
+  'loaded',
+  'durationchange',
+  'fullscreenchange',
+  'qualitychange',
+  'camerachange',
+  'resize'
 ]
 // @vue/component
 export default {

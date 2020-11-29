@@ -180,18 +180,28 @@ The ready event only passes the player instance
 Every other event has these properties: (event, data, player)
 
  - play
+ - playing
  - pause
  - ended
  - timeupdate
  - progress
+ - seeking
  - seeked
  - texttrackchange
+ - chapterchange
  - cuechange
  - cuepoint
  - volumechange
+ - playbackratechange
+ - bufferstart
+ - bufferend
  - error
  - loaded
-
+ - durationchange
+ - fullscreenchange
+ - qualitychange
+ - camerachange
+ - resize
 
 ## Example
 
