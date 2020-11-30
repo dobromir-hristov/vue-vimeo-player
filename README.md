@@ -1,7 +1,7 @@
 # Vue wrapper for Vimeo Embed Player 
-[![npm](https://img.shields.io/npm/v/vue-vimeo-player.svg)](https://www.npmjs.com/package/vue-vimeo-player) [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![vue2](https://img.shields.io/badge/vue-2.x-brightgreen.svg)](https://vuejs.org/)
+[![npm](https://img.shields.io/npm/v/vue-vimeo-player.svg)](https://www.npmjs.com/package/vue-vimeo-player) [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![vue2](https://img.shields.io/badge/vue-3.x-brightgreen.svg)](https://vuejs.org/)
 
-The Vue vimeo player allows you to use the Vimeo player as a Vue component with ease, even with Nuxt.js SSR.
+Embed a Vimeo player as a Vue 3 component with ease, even with Nuxt.js SSR.
 
 ## Installation
 
@@ -23,8 +23,10 @@ You can either import it in your whole project
  ```js
  import vueVimeoPlayer from 'vue-vimeo-player'
  import Vue from 'vue'
+  
+ const app = Vue.createApp(App)
 
- Vue.use(vueVimeoPlayer)
+ app.use(vueVimeoPlayer)
 
 ```
 or import it locally in a component
@@ -40,13 +42,18 @@ or import it locally in a component
 
 ## Usage without module bundler
 
-Just include the script from the CDN and you are good to go.
+Just include the script from the CDN and attach it to your app instance
 
 ```html
 <script src="//unpkg.com/vue@2.4"></script>
 <script src="//unpkg.com/vue-vimeo-player"></script>
 <!-- .... -->
-<vimeo-player :video-id='videoId'></vimeo-player>	
+<vimeo-player :video-id='videoId'></vimeo-player>
+<script>
+const app = Vue.createApp(App)
+app.use(VueVimeoPlayer.default)
+app.mount(...)
+</script>	
 ```
 
 ## Usage with Nuxt.js
@@ -61,7 +68,8 @@ We need to create a file inside the `plugins` directory called `vimeo-player.js`
 import Vue from 'vue'
 import vueVimeoPlayer from 'vue-vimeo-player'
 
-Vue.use(vueVimeoPlayer)
+const app = Vue.createApp(App)
+app.use(vueVimeoPlayer)
 ```
 
 Now we need to tell Nuxt to load our plugin inside `nuxt.config.js`
@@ -168,11 +176,9 @@ Useful properties to interact with
 
  - player - The instance of the Vimeo player
 
-
 ## Events
 
 Events emitted from the component. 
-
 
 The ready event only passes the player instance
  - ready
@@ -205,17 +211,18 @@ Every other event has these properties: (event, data, player)
 
 ## Example
 
-
 ```js
  // app.js
  import vueVimeoPlayer from 'vue-vimeo-player'
  import Vue from 'vue'
+ import App from '@/App'
 
- Vue.use(vueVimeoPlayer)
+ const app = Vue.createApp(App)
+ app.use(vueVimeoPlayer)
 ```
 ```html
 <template>
-	<vimeo-player ref="player" :video-id="videoID" @ready="onReady" :player-height="height"></vimeo-player>
+	<vimeo-player ref="player" :video-id="videoID" :player-height="height" @ready="onReady"/>
 </template>
 <script>
 export default {
@@ -225,7 +232,7 @@ export default {
 			height: 500,
 			options: {
 				muted: true,
-	      			autoplay: true,
+                autoplay: true,
 			},
 			playerReady: false
 		}
