@@ -1,7 +1,7 @@
-import vueVimeoPlayer from './main.js'
+import vueVimeoPlayer from './VimeoPlayer.vue'
 
-function plugin (Vue, options) {
-  Vue.component('vimeo-player', vueVimeoPlayer)
+function plugin (app) {
+  app.component(vueVimeoPlayer.name, vueVimeoPlayer)
 }
 
 plugin.version = '__VERSION__'
@@ -10,8 +10,4 @@ export default plugin
 
 export {
   vueVimeoPlayer
-}
-
-if (typeof window !== 'undefined' && window.Vue) {
-  window.Vue.use(plugin)
 }
