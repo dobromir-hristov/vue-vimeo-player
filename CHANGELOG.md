@@ -1,6 +1,17 @@
-# Change Log
+# Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## [1.0.0](https://github.com/dobromir-hristov/vue-vimeo-player/compare/v0.1.1...v1.0.0) (2020-11-30)
+
+
+### ⚠ BREAKING CHANGES
+
+* Add Vue 3 support
+
+### Features
+
+* add support for Vue 3. Improve build step. ([70ac5c7](https://github.com/dobromir-hristov/vue-vimeo-player/commit/70ac5c70fa453eaabc1720cc11e5c9a2daeca4dc))
 
 <a name="0.1.1"></a>
 ## [0.1.1](https://github.com/dobromir-hristov/vue-vimeo-player/compare/v0.1.0...v0.1.1) (2020-11-29)
