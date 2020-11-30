@@ -8,12 +8,12 @@ Embed a Vimeo player as a Vue 3 component with ease, even with Nuxt.js SSR.
 Using npm:
 
 ```bash
-npm install vue-vimeo-player --save
+npm install vue-vimeo-player@next --save
 ```
 of load it via CDN
 
 ```html
-<script src="//unpkgd.com/vue-vimeo-player"></script>
+<script src="//unpkg.com/vue-vimeo-player@next"></script>
 ```
 
 ## Getting Started
