@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.2](https://github.com/dobromir-hristov/vue-vimeo-player/compare/v1.0.1...v1.0.2) (2020-12-02)
+
+
+### Bug Fixes
+
+* remove browser package.json field ([0e5bddf](https://github.com/dobromir-hristov/vue-vimeo-player/commit/0e5bddf6e06e59439b4ca877109fd30383ed6ecb))
+
 ### [1.0.1](https://github.com/dobromir-hristov/vue-vimeo-player/compare/v1.0.0...v1.0.1) (2020-11-30)
 
 ## [1.0.0](https://github.com/dobromir-hristov/vue-vimeo-player/compare/v0.1.1...v1.0.0) (2020-11-30)
