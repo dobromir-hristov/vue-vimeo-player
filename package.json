@@ -4,7 +4,6 @@
   "description": "Vue.js wrapper for Vimeo player",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
-  "browser": "dist/index.iife.js",
   "unpkg": "dist/index.iife.js",
   "jsdelivr": "dist/index.iife.js",
   "scripts": {
