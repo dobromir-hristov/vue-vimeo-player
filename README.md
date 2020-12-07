@@ -1,5 +1,5 @@
 # Vue wrapper for Vimeo Embed Player 
-[![npm](https://img.shields.io/npm/v/vue-vimeo-player.svg)](https://www.npmjs.com/package/vue-vimeo-player) [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![vue2](https://img.shields.io/badge/vue-3.x-brightgreen.svg)](https://vuejs.org/)
+[![npm](https://img.shields.io/npm/v/vue-vimeo-player/next.svg)](https://www.npmjs.com/package/vue-vimeo-player) ![NPM](https://img.shields.io/npm/l/vue-vimeo-player) ![npm bundle size (version)](https://img.shields.io/bundlephobia/min/vue-vimeo-player/1.0.1) [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![vue3](https://img.shields.io/badge/vue-3.x-brightgreen.svg)](https://v3.vuejs.org/)
 
 Embed a Vimeo player as a Vue 3 component with ease, even with Nuxt.js SSR.
 
@@ -25,6 +25,7 @@ You can either import it in your whole project
  ```js
  import vueVimeoPlayer from 'vue-vimeo-player'
  import Vue from 'vue'
+ import App from '@/App.vue'
   
  const app = Vue.createApp(App)
 
@@ -52,7 +53,7 @@ Just include the script from the CDN and attach it to your app instance
 <!-- .... -->
 <vimeo-player :video-id='videoId'></vimeo-player>
 <script>
-const app = Vue.createApp(App)
+const app = Vue.createApp({...})
 app.use(VueVimeoPlayer.default)
 app.mount(...)
 </script>	
@@ -186,6 +187,7 @@ Every other event has these properties: (event, data, player)
 
  const app = Vue.createApp(App)
  app.use(vueVimeoPlayer)
+ app.mount('#app')
 ```
 ```html
 <template>
