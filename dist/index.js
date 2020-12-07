@@ -150,7 +150,7 @@ function plugin(app) {
   app.component(script.name, script);
 }
 
-plugin.version = '1.0.2';
+plugin.version = '1.0.3';
 
 exports.default = plugin;
 exports.vueVimeoPlayer = script;
