@@ -84,7 +84,7 @@ export default {
      * @return {LoadVideoPromise}
      */
     update (videoId) {
-      return this.player.loadVideo(videoId)
+      return this.player.loadVideo(videoId, this.getMergedOptions())
     },
     play () {
       return this.player.play()
@@ -110,20 +110,23 @@ export default {
         })
 
       eventsToEmit.forEach(event => emitVueEvent.call(vm, event))
+    },
+    getMergedOptions() {
+      const options = {
+        id: this.videoId,
+        width: this.playerWidth,
+        height: this.playerHeight,
+        loop: this.loop,
+        autoplay: this.autoplay,
+        controls: this.controls,
+      }
+      if (this.videoUrl) { options.url = this.videoUrl }
+
+      return assign(options, this.options)
     }
   },
   mounted () {
-    const options = {
-      id: this.videoId,
-      width: this.playerWidth,
-      height: this.playerHeight,
-      loop: this.loop,
-      autoplay: this.autoplay,
-      controls: this.controls
-    }
-    if (this.videoUrl) { options.url = this.videoUrl }
-
-    this.player = new Player(this.elementId, assign(options, this.options))
+    this.player = new Player(this.elementId, this.getMergedOptions())
 
     this.setEvents()
   },
