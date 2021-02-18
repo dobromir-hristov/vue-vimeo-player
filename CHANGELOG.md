@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.1.2"></a>
+## [0.1.2](https://github.com/dobromir-hristov/vue-vimeo-player/compare/v0.1.1...v0.1.2) (2021-02-18)
+
+
+### Bug Fixes
+
+* properly update on url and id change. ([e8f0b66](https://github.com/dobromir-hristov/vue-vimeo-player/commit/e8f0b66))
+* use object-assign helper again ([8f85691](https://github.com/dobromir-hristov/vue-vimeo-player/commit/8f85691))
+
+
+
 <a name="0.1.1"></a>
 ## [0.1.1](https://github.com/dobromir-hristov/vue-vimeo-player/compare/v0.1.0...v0.1.1) (2020-11-29)
 
