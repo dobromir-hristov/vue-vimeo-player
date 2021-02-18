@@ -990,10 +990,10 @@
   dependencies:
     "@types/node" "*"
 
-"@vimeo/player@^2.14.1":
-  version "2.14.1"
-  resolved "https://registry.yarnpkg.com/@vimeo/player/-/player-2.14.1.tgz#f35fd141fbd096555d1090e53625364cb0874fff"
-  integrity sha512-PXIATVxUfblTbRoSXzNcplJFjsho6e32ltfEm4po/RFZcAOYefOO4mjxDMGUTAzo937DZvjd5n1u7+EfGHuLPw==
+"@vimeo/player@^2.15.0":
+  version "2.15.0"
+  resolved "https://registry.yarnpkg.com/@vimeo/player/-/player-2.15.0.tgz#c1037706f0a95abf87f6aa960d058e11efe6510e"
+  integrity sha512-PH+H7G7pIUbrw8AHeigOc13cUoe8E78y4XCVqSP7pLFj/kQm0EvHQGBO3224Qq7a0XMEmNR6kH+n+8o0GslWCg==
   dependencies:
     native-promise-only "0.8.1"
     weakmap-polyfill "2.0.1"

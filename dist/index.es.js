@@ -1,4 +1,4 @@
-import { ref, toRefs, onMounted, onBeforeUnmount, watch, openBlock, createBlock } from 'vue';
+import { ref, toRefs, onMounted, onBeforeUnmount, watch, toRef, unref, openBlock, createBlock } from 'vue';
 import Player from '@vimeo/player';
 
 function emitVueEvent(_ref) {
@@ -30,11 +30,11 @@ var script = {
     },
     videoId: {
       type: String,
-      required: true
+      "default": ''
     },
     videoUrl: {
       type: String,
-      "default": undefined
+      "default": ''
     },
     loop: {
       type: Boolean,
@@ -58,21 +58,30 @@ var script = {
         videoId = _toRefs.videoId,
         videoUrl = _toRefs.videoUrl;
 
-    var options = {
-      id: props.videoId,
-      width: props.playerWidth,
-      height: props.playerHeight,
-      loop: props.loop,
-      autoplay: props.autoplay,
-      controls: props.controls
-    };
-
-    if (videoUrl.value) {
-      options.url = videoUrl.value;
+    if (!props.videoId && !props.videoUrl) {
+      console.warn('[VueVimeoPlayer: You mist provide at least a videoId or a videoUrl prop]');
     }
 
-    var update = function update(videoId) {
-      return player.loadVideo(videoId);
+    var mergeOptions = function mergeOptions(_ref3) {
+      var id = _ref3.id,
+          url = _ref3.url;
+      var opts = {
+        width: props.playerWidth,
+        height: props.playerHeight,
+        loop: props.loop,
+        autoplay: props.autoplay,
+        controls: props.controls
+      };
+
+      if (unref(url)) {
+        opts.url = unref(url);
+      }
+
+      if (unref(id)) {
+        opts.id = unref(id);
+      }
+
+      return opts;
     };
 
     var play = function play() {
@@ -108,14 +117,38 @@ var script = {
     };
 
     onMounted(function () {
-      player = new Player(elementRef.value, Object.assign(options, props.options));
+      player = new Player(elementRef.value, mergeOptions({
+        id: props.videoId,
+        url: props.videoUrl
+      }));
       setEvents();
     });
     onBeforeUnmount(function () {
       return player.unload();
     });
-    watch(videoId, update);
-    watch(videoUrl, update);
+    watch(videoId, function (id) {
+      return player.loadVideo(mergeOptions({
+        id: id
+      }));
+    });
+    watch(videoUrl, function (url) {
+      return player.loadVideo(mergeOptions({
+        url: url
+      }));
+    });
+    watch(toRef(props, 'controls'), function () {
+      return player.loadVideo(mergeOptions({
+        url: videoUrl,
+        id: videoId
+      }));
+    });
+
+    var update = function update(id) {
+      return player.loadVideo(mergeOptions({
+        id: id
+      }));
+    };
+
     return {
       update: update,
       play: play,

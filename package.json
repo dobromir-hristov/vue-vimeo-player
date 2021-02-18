@@ -45,7 +45,7 @@
     "standard-version": "^9.0.0"
   },
   "dependencies": {
-    "@vimeo/player": "^2.14.1",
+    "@vimeo/player": "^2.15.0",
     "@vue/compiler-sfc": "^3.0.3",
     "vue": "^3.0.3"
   },

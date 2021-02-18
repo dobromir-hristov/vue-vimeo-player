@@ -2,7 +2,7 @@
   <div ref="elementRef" />
 </template>
 <script>
-import { watch, toRefs, onMounted, onBeforeUnmount, ref } from 'vue'
+import { watch, toRefs, onMounted, onBeforeUnmount, ref, unref, toRef } from 'vue'
 import Player from '@vimeo/player'
 
 function emitVueEvent ({ player, event, emit }) {
@@ -52,11 +52,11 @@ export default {
     },
     videoId: {
       type: String,
-      required: true
+      default: ''
     },
     videoUrl: {
       type: String,
-      default: undefined
+      default: ''
     },
     loop: {
       type: Boolean,
@@ -75,19 +75,26 @@ export default {
     let player
     const elementRef = ref(null)
     const { videoId, videoUrl } = toRefs(props)
-    const options = {
-      id: props.videoId,
-      width: props.playerWidth,
-      height: props.playerHeight,
-      loop: props.loop,
-      autoplay: props.autoplay,
-      controls: props.controls
+    if (!props.videoId && !props.videoUrl) {
+      console.warn('[VueVimeoPlayer: You mist provide at least a videoId or a videoUrl prop]')
     }
-    if (videoUrl.value) {
-      options.url = videoUrl.value
+    const mergeOptions = ({ id, url }) => {
+      const opts = {
+        width: props.playerWidth,
+        height: props.playerHeight,
+        loop: props.loop,
+        autoplay: props.autoplay,
+        controls: props.controls
+      }
+      if (unref(url)) {
+        opts.url = unref(url)
+      }
+      if (unref(id)) {
+        opts.id = unref(id)
+      }
+      return opts
     }
 
-    const update = videoId => player.loadVideo(videoId)
     const play = () => player.play()
     const pause = () => player.pause()
     const mute = () => player.setVolume(0)
@@ -104,15 +111,18 @@ export default {
     }
 
     onMounted(() => {
-      player = new Player(elementRef.value, Object.assign(options, props.options))
+      player = new Player(elementRef.value, mergeOptions({ id: props.videoId, url: props.videoUrl }))
 
       setEvents()
     })
 
     onBeforeUnmount(() => player.unload())
 
-    watch(videoId, update)
-    watch(videoUrl, update)
+    watch(videoId, (id) => player.loadVideo(mergeOptions({ id })))
+    watch(videoUrl, (url) => player.loadVideo(mergeOptions({ url })))
+    watch(toRef(props, 'controls'), () => player.loadVideo(mergeOptions({ url: videoUrl, id: videoId })))
+
+    const update = (id) => player.loadVideo(mergeOptions({ id }))
 
     return {
       update, play, pause, mute, unmute, elementRef
