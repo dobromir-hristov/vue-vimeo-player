@@ -179,7 +179,7 @@ var VueVimeoPlayer = (function (exports, vue, Player) {
     app.component(script.name, script);
   }
 
-  plugin.version = '1.0.3';
+  plugin.version = '1.0.4';
 
   exports.default = plugin;
   exports.vueVimeoPlayer = script;

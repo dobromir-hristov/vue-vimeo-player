@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.4](https://github.com/dobromir-hristov/vue-vimeo-player/compare/v1.0.3...v1.0.4) (2021-02-18)
+
+
+### Bug Fixes
+
+* make videoID not required anymore. ([0c21bad](https://github.com/dobromir-hristov/vue-vimeo-player/commit/0c21bad519f7056c1e8d23cdead2746e252520dc))
+
 ### [1.0.3](https://github.com/dobromir-hristov/vue-vimeo-player/compare/v1.0.2...v1.0.3) (2020-12-07)
 
 ### [1.0.2](https://github.com/dobromir-hristov/vue-vimeo-player/compare/v1.0.1...v1.0.2) (2020-12-02)
