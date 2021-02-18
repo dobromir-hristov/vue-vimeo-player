@@ -1,5 +1,4 @@
 import Player from '@vimeo/player'
-import assign from 'object-assign'
 
 let pid = 0
 
@@ -44,29 +43,29 @@ export default {
       default: 640
     },
     options: {
+      type: Object,
       default: () => ({})
     },
     videoId: {
-      required: true
+      type: String,
+      default: ''
     },
     videoUrl: {
-      default: undefined
+      type: String,
+      default: ''
     },
     loop: {
+      type: Boolean,
       default: false
     },
     autoplay: {
+      type: Boolean,
       default: false
     },
     controls: {
+      type: Boolean,
       default: true
     }
-  },
-  render (h) {
-    return h('div', { attrs: { id: this.elementId } })
-  },
-  watch: {
-    videoId: 'update'
   },
   data () {
     pid += 1
@@ -76,6 +75,36 @@ export default {
       player: null
     }
   },
+  computed: {
+    getOptions () {
+      const options = {
+        width: this.playerWidth,
+        height: this.playerHeight,
+        loop: this.loop,
+        autoplay: this.autoplay,
+        controls: this.controls
+      }
+      if (this.videoUrl) { options.url = this.videoUrl }
+      if (this.videoId) { options.id = this.videoId }
+      return { ...options, ...this.options }
+    }
+  },
+  watch: {
+    videoId: 'update',
+    videoUrl: 'update',
+    controls: 'update'
+  },
+  mounted () {
+    if (!this.videoUrl && !this.videoId) {
+      console.warn('[VueVimeoPlayer]: You must provide at least a videoUrl or videoId')
+    }
+    this.player = new Player(this.elementId, this.getOptions)
+
+    this.setEvents()
+  },
+  beforeDestroy () {
+    this.player.unload()
+  },
   methods: {
     /**
      * Loads a new video ID.
@@ -83,8 +112,8 @@ export default {
      * @param {Number} videoId
      * @return {LoadVideoPromise}
      */
-    update (videoId) {
-      return this.player.loadVideo(videoId)
+    update () {
+      return this.player.loadVideo(this.getOptions)
     },
     play () {
       return this.player.play()
@@ -112,22 +141,7 @@ export default {
       eventsToEmit.forEach(event => emitVueEvent.call(vm, event))
     }
   },
-  mounted () {
-    const options = {
-      id: this.videoId,
-      width: this.playerWidth,
-      height: this.playerHeight,
-      loop: this.loop,
-      autoplay: this.autoplay,
-      controls: this.controls
-    }
-    if (this.videoUrl) { options.url = this.videoUrl }
-
-    this.player = new Player(this.elementId, assign(options, this.options))
-
-    this.setEvents()
-  },
-  beforeDestroy () {
-    this.player.unload()
+  render (h) {
+    return h('div', { attrs: { id: this.elementId } })
   }
 }
