@@ -1,4 +1,5 @@
 import Player from '@vimeo/player'
+import assign from 'object-assign'
 
 let pid = 0
 
@@ -86,7 +87,7 @@ export default {
       }
       if (this.videoUrl) { options.url = this.videoUrl }
       if (this.videoId) { options.id = this.videoId }
-      return { ...options, ...this.options }
+      return assign(options, this.options)
     }
   },
   watch: {
