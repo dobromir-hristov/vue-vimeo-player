@@ -183,7 +183,7 @@ function plugin(app) {
   app.component(script.name, script);
 }
 
-plugin.version = '1.0.4';
+plugin.version = '1.0.5';
 
 exports.default = plugin;
 exports.vueVimeoPlayer = script;
