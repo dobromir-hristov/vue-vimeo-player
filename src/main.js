@@ -9,7 +9,7 @@ function emitVueEvent (event) {
   })
 }
 
-const eventsToEmit = [
+const defaultEventsToEmit = [
   'play',
   'playing',
   'pause',
@@ -66,6 +66,10 @@ export default {
     controls: {
       type: Boolean,
       default: true
+    },
+    eventsToEmit: {
+      type: Array,
+      default: defaultEventsToEmit
     }
   },
   data () {
@@ -139,7 +143,7 @@ export default {
           vm.$emit('error', error, vm.player)
         })
 
-      eventsToEmit.forEach(event => emitVueEvent.call(vm, event))
+      this.eventsToEmit.forEach(event => emitVueEvent.call(vm, event))
     }
   },
   render (h) {
