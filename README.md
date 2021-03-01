@@ -152,6 +152,13 @@ Now we have to use the [client-only](https://nuxtjs.org/docs/2.x/features/nuxt-c
         <td>This parameter if `false` will hide all elements in the player (play bar, sharing buttons, etc) for a chromeless experience. ⚠️Warning: When using this parameter, the play bar and UI will be hidden. To start playback for your viewers, you'll need to either enable autoplay or use our player SDK to start and control playback. **(available to Plus, PRO, or Business members)**</td>
         <td>No</td>
     </tr>
+    <tr>
+        <td>events-to-emit</td>
+        <td>Array</td>
+        <td>All available <a href="#events">events</a></td>
+        <td>Control what video events to emit</td>
+        <td>No</td>
+    </tr>
 </table>
  
 ## Methods
