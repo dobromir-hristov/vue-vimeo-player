@@ -51,6 +51,12 @@ var VueVimeoPlayer = (function (exports, vue, Player) {
       controls: {
         type: Boolean,
         "default": true
+      },
+      eventsToEmit: {
+        type: Array,
+        "default": function _default() {
+          return eventsToEmit;
+        }
       }
     },
     setup: function setup(props, _ref2) {
@@ -111,7 +117,7 @@ var VueVimeoPlayer = (function (exports, vue, Player) {
         })["catch"](function (error) {
           emit('error', error, player);
         });
-        eventsToEmit.forEach(function (event) {
+        props.eventsToEmit.forEach(function (event) {
           return emitVueEvent({
             player: player,
             event: event,
@@ -179,7 +185,7 @@ var VueVimeoPlayer = (function (exports, vue, Player) {
     app.component(script.name, script);
   }
 
-  plugin.version = '1.0.5';
+  plugin.version = '1.1.0';
 
   exports.default = plugin;
   exports.vueVimeoPlayer = script;
