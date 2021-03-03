@@ -69,6 +69,10 @@ export default {
     controls: {
       type: Boolean,
       default: true
+    },
+    eventsToEmit: {
+      type: Array,
+      default: () => eventsToEmit
     }
   },
   setup (props, { emit }) {
@@ -107,7 +111,7 @@ export default {
         emit('error', error, player)
       })
 
-      eventsToEmit.forEach(event => emitVueEvent({ player, event, emit }))
+      props.eventsToEmit.forEach(event => emitVueEvent({ player, event, emit }))
     }
 
     onMounted(() => {
