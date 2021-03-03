@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.2.0"></a>
+# [0.2.0](https://github.com/dobromir-hristov/vue-vimeo-player/compare/v0.1.2...v0.2.0) (2021-03-03)
+
+
+### Features
+
+* Add prop to set what events to emit ([#61](https://github.com/dobromir-hristov/vue-vimeo-player/issues/61)) ([8bde06e](https://github.com/dobromir-hristov/vue-vimeo-player/commit/8bde06e))
+
+
+
 <a name="0.1.2"></a>
 ## [0.1.2](https://github.com/dobromir-hristov/vue-vimeo-player/compare/v0.1.1...v0.1.2) (2021-02-18)
 
