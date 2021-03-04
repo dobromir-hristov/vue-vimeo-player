@@ -87,7 +87,7 @@ var script = {
         opts.id = unref(id);
       }
 
-      return opts;
+      return Object.assign(opts, props.options);
     };
 
     var play = function play() {
@@ -181,7 +181,7 @@ function plugin(app) {
   app.component(script.name, script);
 }
 
-plugin.version = '1.1.0';
+plugin.version = '1.1.1';
 
 export default plugin;
 export { script as vueVimeoPlayer };
