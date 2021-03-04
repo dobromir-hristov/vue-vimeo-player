@@ -96,7 +96,7 @@ export default {
       if (unref(id)) {
         opts.id = unref(id)
       }
-      return opts
+      return Object.assign(opts, props.options)
     }
 
     const play = () => player.play()
