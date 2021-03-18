@@ -69,7 +69,7 @@ export default {
     },
     eventsToEmit: {
       type: Array,
-      default: defaultEventsToEmit
+      default: () => defaultEventsToEmit
     }
   },
   data () {
