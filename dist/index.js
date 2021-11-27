@@ -178,7 +178,7 @@ var _hoisted_1 = {
   ref: "elementRef"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return vue.openBlock(), vue.createBlock("div", _hoisted_1, null, 512
+  return vue.openBlock(), vue.createElementBlock("div", _hoisted_1, null, 512
   /* NEED_PATCH */
   );
 }

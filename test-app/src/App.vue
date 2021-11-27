@@ -24,7 +24,6 @@ const change = () => {
   id.value = '470292592'
   url.value = 'https://vimeo.com/470292592'
 }
-
 </script>
 
 <style>

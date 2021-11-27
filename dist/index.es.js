@@ -1,4 +1,4 @@
-import { ref, toRefs, onMounted, onBeforeUnmount, watch, toRef, unref, openBlock, createBlock } from 'vue';
+import { ref, toRefs, onMounted, onBeforeUnmount, watch, toRef, unref, openBlock, createElementBlock } from 'vue';
 import Player from '@vimeo/player';
 
 function emitVueEvent(_ref) {
@@ -170,7 +170,7 @@ var _hoisted_1 = {
   ref: "elementRef"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return openBlock(), createBlock("div", _hoisted_1, null, 512
+  return openBlock(), createElementBlock("div", _hoisted_1, null, 512
   /* NEED_PATCH */
   );
 }
