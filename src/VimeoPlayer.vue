@@ -129,7 +129,7 @@ export default {
     const update = (id) => player.loadVideo(mergeOptions({ id }))
 
     return {
-      update, play, pause, mute, unmute, elementRef
+      update, play, pause, mute, unmute, elementRef, player
     }
   }
 }
