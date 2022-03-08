@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.2](https://github.com/dobromir-hristov/vue-vimeo-player/compare/v1.1.1...v1.1.2) (2022-03-08)
+
+
+### Bug Fixes
+
+* expose player from setup ([#88](https://github.com/dobromir-hristov/vue-vimeo-player/issues/88)) ([f94b3cd](https://github.com/dobromir-hristov/vue-vimeo-player/commit/f94b3cd3395bfed6e37992e3ec25b8664318fbbb))
+
 ### [1.1.1](https://github.com/dobromir-hristov/vue-vimeo-player/compare/v1.1.0...v1.1.1) (2021-03-04)
 
 

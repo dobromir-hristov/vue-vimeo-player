@@ -165,7 +165,8 @@ var VueVimeoPlayer = (function (exports, vue, Player) {
         pause: pause,
         mute: mute,
         unmute: unmute,
-        elementRef: elementRef
+        elementRef: elementRef,
+        player: player
       };
     }
   };
@@ -185,7 +186,7 @@ var VueVimeoPlayer = (function (exports, vue, Player) {
     app.component(script.name, script);
   }
 
-  plugin.version = '1.1.1';
+  plugin.version = '1.1.2';
 
   exports.default = plugin;
   exports.vueVimeoPlayer = script;
